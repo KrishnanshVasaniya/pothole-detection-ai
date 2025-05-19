@@ -51,13 +51,13 @@ for uploaded_file in uploaded_files:
 
     with col2:
         st.markdown("### 📷 Canny Edge Detection")
-        st.image(edges, channels="GRAY", use_column_width=True)
+        st.image(edges, channels="GRAY", use_container_width=True)
 
     with col3:
         st.markdown("### 📦 Potholes (Bounding Boxes)")
         for (x, y, w, h) in boxes:
             cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
-        st.image(image, channels="BGR", use_column_width=True)
+        st.image(image, channels="BGR", use_container_width=True)
 
     st.success(f"✅ Average pothole depth: {avg_depth} meters")
     st.info(f"🏁 Estimated Road Condition: {road_quality}%")
