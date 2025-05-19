@@ -46,3 +46,4 @@ opencv-python
 numpy
 pandas
 matplotlib
+pillow

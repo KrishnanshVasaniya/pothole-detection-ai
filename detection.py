@@ -3,7 +3,12 @@ import numpy as np
 import pandas as pd
 
 def find_pothole_regions(image_path):
-    image = cv2.imread(image_path)
+    from PIL import Image
+
+    image = Image.open(image_path).convert('RGB')
+    image = np.array(image)
+    image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (5, 5), 0)
     edges = cv2.Canny(blur, 50, 150)
